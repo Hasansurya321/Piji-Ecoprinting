@@ -1,0 +1,268 @@
+/* ===== GALLERY HOME SECTION ===== */
+.gallery-home {
+  width: 100%;
+  background-color: #f4efe4;
+  padding: 52px 0;
+  scroll-margin-top: 96px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 0;
+}
+
+.gallery-home__container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 0 32px;
+}
+
+/* ===== HEADER ===== */
+.gallery-home__header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.gallery-home__eyebrow {
+  display: inline-block;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2f4a25;
+  margin-bottom: 10px;
+}
+
+.gallery-home__title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin: 0 0 12px;
+}
+
+.gallery-home__ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #2f4a25;
+}
+
+.gallery-home__ornament-line {
+  width: 48px;
+  height: 1px;
+  background-color: rgba(47, 74, 37, 0.35);
+}
+
+/* ===== AUTO-SLIDING CAROUSEL ===== */
+.gallery-home__carousel {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.gallery-home__state {
+  text-align: center;
+  padding: 48px 20px;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 15px;
+  color: #6b6b6b;
+}
+
+.gallery-home__track {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: max-content;
+  animation: gallery-home-marquee 38s linear infinite;
+  will-change: transform;
+}
+
+/* Mode statis: dipakai saat hanya ada 1 item — tanpa animasi, tampil penuh di tengah */
+.gallery-home__track--static {
+  animation: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.gallery-home__carousel:hover .gallery-home__track {
+  animation-play-state: paused;
+}
+
+/* ===== SLIDES ===== */
+.gallery-home__slide {
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  background-color: #e8ddca;
+}
+
+.gallery-home__slide--tall {
+  width: 270px;
+  height: 340px;
+}
+
+.gallery-home__slide--wide {
+  width: 340px;
+  height: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.gallery-home__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-home__slide-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.gallery-home__slide-category {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background-color: rgba(47, 74, 37, 0.85);
+  color: #ffffff;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* ===== MARQUEE KEYFRAMES ===== */
+@keyframes gallery-home-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== CTA ===== */
+.gallery-home__cta {
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-home__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background-color: #2f4a25;
+  color: #ffffff;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease;
+}
+
+.gallery-home__btn:hover {
+  background-color: #24391d;
+  transform: translateY(-1px);
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .gallery-home {
+    padding: 44px 0;
+  }
+
+  .gallery-home__container {
+    padding: 0 32px;
+  }
+
+  .gallery-home__title {
+    font-size: 30px;
+  }
+
+  .gallery-home__slide--tall {
+    width: 230px;
+    height: 300px;
+  }
+
+  .gallery-home__slide--wide {
+    width: 290px;
+    height: 260px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .gallery-home {
+    padding: 40px 0;
+  }
+
+  .gallery-home__container {
+    padding: 0 20px;
+  }
+
+  .gallery-home__header {
+    margin-bottom: 24px;
+  }
+
+  .gallery-home__title {
+    font-size: 26px;
+  }
+
+  .gallery-home__carousel {
+    margin-bottom: 24px;
+  }
+
+  .gallery-home__track {
+    gap: 14px;
+  }
+
+  .gallery-home__slide--tall {
+    width: 180px;
+    height: 240px;
+  }
+
+  .gallery-home__slide--wide {
+    width: 220px;
+    height: 210px;
+  }
+
+  .gallery-home__cta {
+    padding: 0 20px;
+  }
+}

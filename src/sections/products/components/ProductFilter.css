@@ -1,0 +1,63 @@
+/* ===== PRODUCT FILTER ===== */
+.product-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-filter__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #2f4a25;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1.5px solid #2f4a25;
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+  user-select: none;
+}
+
+.product-filter__btn:hover {
+  background-color: #f5efe3;
+  transform: translateY(-1px);
+}
+
+.product-filter__btn:focus-visible {
+  outline: 2px solid #2f4a25;
+  outline-offset: 3px;
+}
+
+.product-filter__btn--active {
+  background-color: #2f4a25;
+  color: #ffffff;
+  border-color: #2f4a25;
+}
+
+.product-filter__btn--active:hover {
+  background-color: #24391d;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-filter {
+    width: 100%;
+    justify-content: center;
+  }
+}

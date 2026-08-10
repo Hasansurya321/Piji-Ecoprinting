@@ -1,0 +1,219 @@
+/* ===== PRODUCT CARD ===== */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== IMAGE PLACEHOLDER ===== */
+.product-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.product-card__image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 300ms ease;
+}
+
+.product-card:hover .product-card__image-img {
+  transform: scale(1.05);
+}
+
+.product-card__image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #f0f0f0;
+  transition: transform 300ms ease;
+}
+
+.product-card:hover .product-card__image-placeholder {
+  transform: scale(1.05);
+}
+
+.product-card__image-icon {
+  color: #b0b0b0;
+}
+
+.product-card__image-text {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #999999;
+}
+
+/* ===== BODY ===== */
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 16px 20px;
+  flex: 1;
+}
+
+/* ===== BADGE KATEGORI ===== */
+.product-card__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: #efe2cc;
+  color: #2f4a25;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+/* ===== NAMA PRODUK ===== */
+.product-card__name {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #1a1a1a;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== HARGA ===== */
+.product-card__price {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2f4a25;
+  margin: 0;
+}
+
+/* ===== DESKRIPSI ===== */
+.product-card__description {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666666;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== RATING ===== */
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.product-card__stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.product-card__star {
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+
+.product-card__star--empty {
+  color: #d4d4d4;
+}
+
+.product-card__review-count {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #999999;
+}
+
+/* ===== TOMBOL ===== */
+.product-card__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 42px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background-color: #2f4a25;
+  color: #ffffff;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease;
+}
+
+.product-card__btn:hover {
+  background-color: #24391d;
+  transform: translateY(-1px);
+}
+
+.product-card__btn:focus-visible {
+  outline: 2px solid #2f4a25;
+  outline-offset: 3px;
+}

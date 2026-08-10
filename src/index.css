@@ -1,0 +1,78 @@
+/* ===== ECOPRINT DESIGN TOKENS ===== */
+:root {
+  /* Brand Colors - SINGLE SOURCE OF TRUTH for green */
+  --primary-green: #2f4a25;
+  --green-dark: #1d3824;
+  --green-button: #27492f;
+  --cream: #efe2cc;
+  --cream-light: #f5efe3;
+  --cream-bg: #f4efe4;
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --text-dark: #26452d;
+  --text-muted: #4f5d50;
+  --text-light: #f8f2e7;
+  --border-light: rgba(255, 255, 255, 0.15);
+
+  /* Typography */
+  --font-heading: Georgia, 'Times New Roman', Times, serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing */
+  --container-max: 1280px;
+  --spacing-desktop: 48px;
+  --spacing-tablet: 32px;
+  --spacing-mobile: 20px;
+}
+
+/* ===== RESET ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+/* ===== ROOT WRAPPER ===== */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

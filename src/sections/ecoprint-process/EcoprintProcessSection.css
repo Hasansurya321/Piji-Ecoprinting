@@ -1,0 +1,287 @@
+/* ===== ECOPINT PROCESS SECTION (DARI DAUN MENJADI KARYA) ===== */
+.ecoprint-process-section {
+  width: 100%;
+  background-color: #3a5a2f;
+  padding: 48px 0 44px 0;
+  scroll-margin-top: 96px;
+}
+
+.ecoprint-process-section__container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 0 32px;
+}
+
+/* ===== HEADER ===== */
+.ecoprint-process-section__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.ecoprint-process-section__ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ecoprint-process-section__line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background-color: rgba(245, 239, 227, 0.35);
+}
+
+.ecoprint-process-section__leaf {
+  color: #f5efe3;
+  flex-shrink: 0;
+}
+
+.ecoprint-process-section__title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #f5efe3;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.ecoprint-process-section__subtitle {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(245, 239, 227, 0.75);
+  max-width: 580px;
+  margin: 0;
+}
+
+/* ===== STEPS ===== */
+.ecoprint-process-section__steps {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 8px;
+}
+
+/* Connecting line (horizontal) */
+.ecoprint-process-section__steps::before {
+  content: '';
+  position: absolute;
+  top: 48px; /* centered relative to 80px icon circles (40px + 8px padding-top) */
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background-color: rgba(245, 239, 227, 0.35);
+  border-radius: 2px;
+}
+
+/* ===== STEP ===== */
+.ecoprint-process-section__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  flex: 0 0 auto;
+  width: 170px;
+  z-index: 1;
+}
+
+/* Icon Circle */
+.ecoprint-process-section__step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #f5efe3;
+  border: 1px solid rgba(47, 74, 37, 0.1);
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+.ecoprint-process-section__step-icon-inner {
+  color: #2f4a25;
+}
+
+/* Step Title */
+.ecoprint-process-section__step-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #f5efe3;
+  margin: 0 0 8px 0;
+}
+
+/* Step Description */
+.ecoprint-process-section__step-desc {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(245, 239, 227, 0.8);
+  max-width: 150px;
+  margin: 0;
+}
+
+/* ===== LIGHT VARIANT (WHITE BACKGROUND) ===== */
+/* Hanya mengubah warna — layout, spacing, dan ukuran tetap sama */
+.ecoprint-process-section--light {
+  background-color: #ffffff;
+}
+
+/* Garis dekoratif di atas judul */
+.ecoprint-process-section--light .ecoprint-process-section__line {
+  background-color: rgba(47, 74, 37, 0.35);
+}
+
+/* Icon daun pada ornament */
+.ecoprint-process-section--light .ecoprint-process-section__leaf {
+  color: #2f4a25;
+}
+
+/* Judul section */
+.ecoprint-process-section--light .ecoprint-process-section__title {
+  color: #1a1a1a;
+}
+
+/* Deskripsi section */
+.ecoprint-process-section--light .ecoprint-process-section__subtitle {
+  color: #666666;
+}
+
+/* Garis timeline horizontal/vertikal */
+.ecoprint-process-section--light .ecoprint-process-section__steps::before {
+  background-color: rgba(47, 74, 37, 0.3);
+}
+
+/* Lingkaran icon — tetap cream dengan border hijau & shadow lebih lembut */
+.ecoprint-process-section--light .ecoprint-process-section__step-icon {
+  background-color: #f5efe3;
+  border: 1px solid rgba(47, 74, 37, 0.2);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon di dalam lingkaran */
+.ecoprint-process-section--light .ecoprint-process-section__step-icon-inner {
+  color: #2f4a25;
+}
+
+/* Judul step */
+.ecoprint-process-section--light .ecoprint-process-section__step-title {
+  color: #2f4a25;
+}
+
+/* Deskripsi step */
+.ecoprint-process-section--light .ecoprint-process-section__step-desc {
+  color: #666666;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .ecoprint-process-section {
+    padding: 44px 0 40px 0;
+  }
+
+  .ecoprint-process-section__title {
+    font-size: 26px;
+  }
+
+  .ecoprint-process-section__step {
+    width: 145px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .ecoprint-process-section {
+    padding: 40px 0 34px 0;
+  }
+
+  .ecoprint-process-section__container {
+    padding: 0 20px;
+  }
+
+  .ecoprint-process-section__header {
+    margin-bottom: 24px;
+  }
+
+  .ecoprint-process-section__line {
+    width: 40px;
+  }
+
+  .ecoprint-process-section__title {
+    font-size: 24px;
+  }
+
+  .ecoprint-process-section__subtitle {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  /* Vertical timeline on mobile */
+  .ecoprint-process-section__steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding-top: 0;
+  }
+
+  /* Connecting line becomes vertical */
+  .ecoprint-process-section__steps::before {
+    top: 0;
+    bottom: 28px;
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
+  .ecoprint-process-section__step {
+    width: 100%;
+    max-width: 280px;
+    padding: 0;
+  }
+
+  .ecoprint-process-section__step-icon {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 12px;
+  }
+
+  .ecoprint-process-section__step-icon-inner {
+    width: 28px;
+    height: 28px;
+  }
+
+  .ecoprint-process-section__step-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .ecoprint-process-section__step-desc {
+    max-width: 200px;
+    font-size: 13px;
+  }
+}

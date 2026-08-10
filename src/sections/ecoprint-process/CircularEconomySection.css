@@ -1,0 +1,545 @@
+/* ===== CIRCULAR ECONOMY & ZERO WASTE SECTION ===== */
+.circular-economy {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: unset;
+  background: radial-gradient(circle at 50% 48%, rgba(110, 135, 88, 0.12) 0%, rgba(47, 74, 37, 0) 50%), var(--primary-green);
+  padding-block: 40px;
+  scroll-margin-top: 96px;
+}
+
+/* ===== SCENE WRAPPER (single coordinate system - siap split/merge) ===== */
+.circular-economy__scene {
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: clamp(24px, 5vw, 80px);
+  position: relative;
+}
+
+.circular-economy__visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1360 / 620;
+  min-height: 420px;
+}
+
+/* ===== SHARED SVG DEFS (marker panah, direferensikan kedua half) ===== */
+.circular-economy__defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ===== SPLIT / MERGE HALF WRAPPERS (strict 50% / 50%) =====
+   Left half menampilkan separuh kiri satu komposisi utuh.
+   Right half menampilkan separuh kanan komposisi yang sama.
+   Keduanya dapat menerima transform: translateX() independen
+   untuk animasi scroll-driven split/merge di fase berikutnya. */
+.circular-economy__half {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.circular-economy__half--left {
+  left: 0;
+}
+
+.circular-economy__half--right {
+  left: 50%;
+}
+
+/* ===== STAGE: komposisi penuh (200% dari half = 100% visual) ===== */
+.circular-economy__stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+}
+
+.circular-economy__stage--right {
+  left: -100%;
+}
+
+/* Separuh kiri komposisi terlihat di LEFT HALF */
+.circular-economy__half--left .circular-economy__stage {
+  clip-path: inset(0 50% 0 0);
+}
+
+/* Separuh kanan komposisi terlihat di RIGHT HALF */
+.circular-economy__half--right .circular-economy__stage {
+  clip-path: inset(0 0 0 50%);
+}
+
+/* ===== DECORATIVE ORNAMENTS (daun transparan) ===== */
+.circular-economy__leaf {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.07;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.circular-economy__leaf--top-right {
+  top: -30px;
+  right: -40px;
+  width: 260px;
+  height: 300px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 180' fill='none'%3E%3Cpath d='M60 10 C35 40 15 80 20 110 C25 140 45 160 60 170 C75 160 95 140 100 110 C105 80 85 40 60 10Z' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M60 30 C45 55 35 85 38 105 C41 125 52 145 60 150' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+  transform: rotate(18deg);
+}
+
+.circular-economy__leaf--bottom-left {
+  bottom: -40px;
+  left: -40px;
+  width: 280px;
+  height: 320px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 180' fill='none'%3E%3Cpath d='M60 10 C35 40 15 80 20 110 C25 140 45 160 60 170 C75 160 95 140 100 110 C105 80 85 40 60 10Z' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M60 30 C45 55 35 85 38 105 C41 125 52 145 60 150' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+  transform: rotate(-15deg) scaleX(-1);
+}
+
+.circular-economy__leaf--top-left {
+  top: -20px;
+  left: -20px;
+  width: 180px;
+  height: 200px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 180' fill='none'%3E%3Cpath d='M60 10 C35 40 15 80 20 110 C25 140 45 160 60 170 C75 160 95 140 100 110 C105 80 85 40 60 10Z' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M60 30 C45 55 35 85 38 105 C41 125 52 145 60 150' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+  transform: rotate(-20deg) scaleX(-1) scale(0.8);
+  opacity: 0.05;
+}
+
+.circular-economy__leaf--bottom-right {
+  bottom: -20px;
+  right: -20px;
+  width: 180px;
+  height: 200px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 180' fill='none'%3E%3Cpath d='M60 10 C35 40 15 80 20 110 C25 140 45 160 60 170 C75 160 95 140 100 110 C105 80 85 40 60 10Z' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M60 30 C45 55 35 85 38 105 C41 125 52 145 60 150' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+  transform: rotate(20deg) scale(0.8);
+  opacity: 0.05;
+}
+
+/* ===== ORNAMEN GARIS SUDUT (bottom-right) ===== */
+.circular-economy__curve {
+  position: absolute;
+  bottom: -40px;
+  right: -30px;
+  width: 280px;
+  height: 280px;
+  border: 2px solid rgba(190, 200, 150, 0.1);
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== SVG CONNECTION LAYER ===== */
+.circular-economy__connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.circular-economy__path {
+  fill: none;
+  stroke: rgba(183, 197, 139, 0.48);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.circular-economy__path--dashed {
+  stroke-dasharray: 6 8;
+}
+
+.circular-economy__connections marker path {
+  fill: rgba(183, 197, 139, 0.48);
+  stroke: none;
+}
+
+.circular-economy__dot {
+  fill: #dde0b5;
+}
+
+/* ===== MAIN CIRCLE (focal point - tepat di seam x=50%) ===== */
+.circular-economy__core {
+  position: absolute;
+  left: 50%;
+  top: 57%;
+  transform: translate(-50%, -50%);
+  width: clamp(280px, 24vw, 390px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  background: radial-gradient(circle at center, rgba(94, 111, 70, 0.18), rgba(30, 42, 25, 0.18));
+  border: 2px solid rgba(185, 196, 142, 0.55);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  padding: 24px;
+}
+
+.circular-economy__core::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 1px dashed rgba(185, 196, 142, 0.25);
+  pointer-events: none;
+}
+
+/* Dedaunan samar di dalam circle */
+.circular-economy__core::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 180' fill='none'%3E%3Cpath d='M60 10 C35 40 15 80 20 110 C25 140 45 160 60 170 C75 160 95 140 100 110 C105 80 85 40 60 10Z' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M60 30 C45 55 35 85 38 105 C41 125 52 145 60 150' stroke='white' stroke-width='1'/%3E%3C/svg%3E")
+    no-repeat center / 46%;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* ===== Isi Circle ===== */
+.circular-economy__core-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(238, 235, 211, 0.85);
+  margin-bottom: 4px;
+}
+
+.circular-economy__core-title {
+  position: relative;
+  z-index: 1;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: clamp(34px, 3vw, 48px);
+  line-height: 0.96;
+  font-weight: 600;
+  color: #f5f1e5;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.circular-economy__core-sub {
+  position: relative;
+  z-index: 1;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: clamp(24px, 2vw, 30px);
+  line-height: 1.1;
+  font-weight: 500;
+  font-style: italic;
+  color: #d8c89c;
+  margin: 0;
+}
+
+.circular-economy__core-desc {
+  position: relative;
+  z-index: 1;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 220px;
+  margin: 2px 0 0 0;
+}
+
+/* ===== CARDS ===== */
+.circular-economy__card {
+  position: absolute;
+  z-index: 2;
+  width: min(315px, 30vw);
+  min-width: 280px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 16px;
+  background-color: #f5efe3;
+  border-radius: 24px;
+  padding: 20px 22px;
+  box-shadow: 0 8px 24px rgba(20, 28, 15, 0.12);
+  transform: translate(-50%, -50%);
+}
+
+/* ===== POSISI CARD (koordinat persentase sesuai spesifikasi) ===== */
+.circular-economy__card--production {
+  left: 50%;
+  top: 14%;
+  width: min(340px, 32vw);
+}
+
+.circular-economy__card--waste {
+  left: 77%;
+  top: 36%;
+}
+
+.circular-economy__card--compost {
+  left: 77%;
+  top: 73%;
+}
+
+.circular-economy__card--partner {
+  left: 23%;
+  top: 73%;
+}
+
+.circular-economy__card--nature {
+  left: 23%;
+  top: 36%;
+}
+
+/* ===== Icon Circle dalam Card ===== */
+.circular-economy__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #556344;
+  color: #f3efe3;
+}
+
+/* ===== Body Card ===== */
+.circular-economy__card-body {
+  min-width: 0;
+}
+
+.circular-economy__card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #263020;
+  margin: 0 0 6px 0;
+}
+
+.circular-economy__card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #2c4723;
+  color: #f5efe3;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.circular-economy__card-desc {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #4c5148;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE: TABLET ===== */
+@media (max-width: 1024px) {
+  .circular-economy {
+    padding-block: 32px;
+  }
+
+  .circular-economy__visual {
+    aspect-ratio: 1000 / 620;
+    min-height: 380px;
+  }
+
+  .circular-economy__card {
+    width: min(270px, 34vw);
+    min-width: 230px;
+    gap: 12px;
+    padding: 16px 16px;
+    border-radius: 20px;
+  }
+
+  .circular-economy__card--production {
+    width: min(290px, 36vw);
+  }
+
+  .circular-economy__card-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .circular-economy__card-title {
+    font-size: 16px;
+    gap: 6px;
+  }
+
+  .circular-economy__card-number {
+    width: 26px;
+    height: 26px;
+    font-size: 10px;
+  }
+
+  .circular-economy__card-desc {
+    font-size: 12px;
+  }
+
+  .circular-economy__core {
+    width: clamp(240px, 28vw, 300px);
+  }
+
+  .circular-economy__core-title {
+    font-size: clamp(28px, 4vw, 38px);
+  }
+
+  .circular-economy__core-sub {
+    font-size: clamp(20px, 3vw, 26px);
+  }
+
+  .circular-economy__core-desc {
+    font-size: 13px;
+    max-width: 190px;
+  }
+}
+
+/* ===== RESPONSIVE: MOBILE (struktur vertikal - satu komposisi) ===== */
+@media (max-width: 768px) {
+  .circular-economy {
+    padding-block: 40px;
+  }
+
+  .circular-economy__scene {
+    padding-inline: 20px;
+  }
+
+  .circular-economy__visual {
+    aspect-ratio: auto;
+    min-height: 0;
+    display: block;
+  }
+
+  /* Half kanan disembunyikan di mobile; half kiri menjadi satu komposisi penuh */
+  .circular-economy__half--right {
+    display: none;
+  }
+
+  .circular-economy__half--left {
+    position: relative;
+    left: auto;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .circular-economy__stage {
+    position: relative;
+    left: auto;
+    width: 100%;
+    height: auto;
+    clip-path: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  /* Diagram line disembunyikan di mobile */
+  .circular-economy__connections {
+    display: none;
+  }
+
+  /* Daun dekoratif hanya samar di mobile */
+  .circular-economy__leaf {
+    display: none;
+  }
+
+  .circular-economy__curve {
+    display: none;
+  }
+
+  /* Core tampil di atas */
+  .circular-economy__core {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: min(320px, 82vw);
+    margin-bottom: 8px;
+  }
+
+  /* Card menjadi full-width vertikal */
+  .circular-economy__card {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    transform: none;
+    width: min(100%, 420px);
+    min-width: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 14px;
+    border-radius: 20px;
+    padding: 16px 18px;
+  }
+
+  /* Panah vertikal sederhana antar card */
+  .circular-economy__card:not(:last-of-type)::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -22px;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(183, 197, 139, 0.55), rgba(183, 197, 139, 0));
+  }
+
+  .circular-economy__card-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .circular-economy__card-title {
+    font-size: 16px;
+  }
+
+  .circular-economy__card-desc {
+    font-size: 13px;
+  }
+}

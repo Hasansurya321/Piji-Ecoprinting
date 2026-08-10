@@ -1,0 +1,237 @@
+/* ===== FOOTER SECTION ===== */
+.footer-section {
+  background: var(--primary-green);
+  color: #ffffff;
+  position: relative;
+}
+
+.footer-section__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 70px 40px 35px;
+}
+
+/* ===== GRID ===== */
+.footer-section__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1.2fr 1.2fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ===== KOLOM 1 - BRAND ===== */
+.footer-section__brand-logo {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+.footer-section__brand-tagline {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.footer-section__brand-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  max-width: 260px;
+  margin-bottom: 24px;
+}
+
+/* ===== SOCIAL MEDIA ===== */
+.footer-section__social {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-section__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.footer-section__social-link:hover {
+  color: #eadbc3;
+  transform: translateY(-2px);
+}
+
+.footer-section__social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===== KOLOM UMUM ===== */
+.footer-section__column-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+  letter-spacing: 0.3px;
+}
+
+.footer-section__link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-section__link {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.78);
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+  display: inline-block;
+}
+
+.footer-section__link:hover {
+  color: #eadbc3;
+  transform: translateX(3px);
+}
+
+/* ===== KOLOM 5 - KONTAK ===== */
+.footer-section__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-section__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.footer-section__contact-icon {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.footer-section__contact-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.footer-section__bottom {
+  margin-top: 45px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-section__copyright {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+}
+
+/* ===== BACK TO TOP ===== */
+.footer-section__back-to-top {
+  position: absolute;
+  bottom: 80px;
+  right: 40px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #eadbc3;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  z-index: 10;
+}
+
+.footer-section__back-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-section__back-to-top svg {
+  width: 18px;
+  height: 18px;
+  color: #2f4a25;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer-section__container {
+    padding: 60px 32px 30px;
+  }
+
+  .footer-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .footer-section__column--brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-section__brand-desc {
+    max-width: 400px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-section__container {
+    padding: 50px 20px 25px;
+  }
+
+  .footer-section__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-section__column--brand {
+    grid-column: auto;
+  }
+
+  .footer-section__brand-desc {
+    max-width: 100%;
+  }
+
+  .footer-section__social {
+    justify-content: flex-start;
+  }
+
+  .footer-section__bottom {
+    margin-top: 36px;
+  }
+
+  .footer-section__back-to-top {
+    bottom: 60px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,831 @@
+/* ===== TENTANG KAMI PAGE ===== */
+
+/* ===== CONTAINER ===== */
+.tk-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+@media (max-width: 1199px) {
+  .tk-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tk-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ===== SECTION BASE ===== */
+.tk-section {
+  padding: 80px 0 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tk-section--light {
+  background: #f4efe4;
+  color: var(--text-dark);
+}
+
+.tk-section--dark {
+  background: var(--primary-green);
+  color: var(--text-light);
+}
+
+/* ===== FADE IN ANIMATION ===== */
+.tk-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.tk-fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tk-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ===== ORNAMENT ===== */
+.tk-ornament {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tk-ornament--top-right {
+  top: -10px;
+  right: -10px;
+}
+
+.tk-ornament--bottom-left {
+  bottom: -10px;
+  left: -10px;
+}
+
+.tk-ornament--bottom-right {
+  bottom: -10px;
+  right: -10px;
+}
+
+.tk-ornament--left {
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+}
+
+.tk-ornament--right {
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+}
+
+.tk-ornament--right-large {
+  bottom: -20px;
+  right: -10px;
+}
+
+/* ===== SECTION HEADER ===== */
+.tk-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.tk-section-header__line {
+  width: 48px;
+  height: 1.5px;
+  background: rgba(38, 69, 45, 0.35);
+}
+
+.tk-section-header__line--light {
+  background: rgba(248, 242, 231, 0.4);
+}
+
+.tk-section-title {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.tk-section-title--light {
+  color: var(--text-light);
+}
+
+.tk-section-ornament {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  opacity: 0.5;
+}
+
+.tk-section-ornament svg {
+  color: #617258;
+}
+
+.tk-section--dark .tk-section-ornament svg {
+  color: #a9b58d;
+}
+
+/* ====== 1. HERO ===== */
+.tk-hero {
+  background: #f4efe4;
+  padding: 60px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tk-hero__grid {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.tk-hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Badge capsule */
+.tk-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px 6px 14px;
+  border: 1.5px solid var(--text-dark);
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+}
+
+.tk-hero__badge svg {
+  flex-shrink: 0;
+  color: var(--text-dark);
+}
+
+/* Heading serif besar */
+.tk-hero__title {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--text-dark);
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+/* Subjudul */
+.tk-hero__subtitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 18px;
+}
+
+/* Deskripsi */
+.tk-hero__desc {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin-bottom: 32px;
+}
+
+/* Tombol hijau pill */
+.tk-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 34px;
+  background: var(--green-button);
+  color: #f7f2e8;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(39, 73, 47, 0.25);
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.tk-hero__btn:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+}
+
+/* Gambar kanan */
+.tk-hero__image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tk-hero__image {
+  width: 100%;
+  aspect-ratio: 1.45 / 1;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(30, 50, 30, 0.2);
+}
+
+.tk-hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ====== 2. VISI KAMI ===== */
+.tk-visi__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.tk-visi__card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  padding: 40px 30px 36px;
+  text-align: center;
+  backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    0 12px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  min-height: 280px;
+}
+
+.tk-visi__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.tk-visi__icon-svg {
+  width: 36px;
+  height: 36px;
+  color: var(--text-light);
+}
+
+.tk-visi__card-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.tk-visi__card-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 280px;
+}
+
+/* ====== 3. BAGAIMANA SISTEM KAMI BEKERJA ===== */
+.tk-sistem {
+  overflow: visible;
+}
+
+.tk-sistem__desktop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+.tk-sistem__step-wrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.tk-sistem__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  width: 152px;
+  flex-shrink: 0;
+}
+
+.tk-sistem__circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(38, 69, 45, 0.4);
+  background: rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tk-sistem__icon {
+  width: 38px;
+  height: 38px;
+  color: var(--text-dark);
+}
+
+.tk-sistem__step-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.tk-sistem__step-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 140px;
+}
+
+/* Arrow with dashed line */
+.tk-sistem__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  flex-shrink: 0;
+  padding-top: 10px;
+  position: relative;
+}
+
+.tk-sistem__arrow-line {
+  width: 100%;
+  height: 1.5px;
+  border-top: 1.5px dashed rgba(38, 69, 45, 0.35);
+  position: relative;
+}
+
+.tk-sistem__arrow-head {
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(38, 69, 45, 0.5);
+  width: 16px;
+  height: 16px;
+}
+
+.tk-sistem__mobile {
+  display: none;
+}
+
+/* ====== 4. STRUKTUR ORGANISASI ===== */
+.tk-organisasi__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.tk-organisasi__card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px 24px;
+  color: var(--text-dark);
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  min-height: 120px;
+}
+
+.tk-organisasi__card-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(38, 69, 45, 0.2);
+  border-radius: 12px;
+}
+
+.tk-organisasi__icon-svg {
+  width: 28px;
+  height: 28px;
+  color: var(--text-dark);
+}
+
+.tk-organisasi__card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.tk-organisasi__card-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.tk-organisasi__card-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ====== 5. MITRA LOKAL ===== */
+.tk-mitra__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.tk-mitra__card {
+  background: #ffffff;
+  border: 1px solid rgba(70, 90, 60, 0.12);
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: 0 6px 20px rgba(50, 60, 40, 0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.tk-mitra__card-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--text-dark);
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.tk-mitra__card-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.tk-mitra__card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 240px;
+}
+
+/* ====== 6. EKONOMI SIRKULAR ===== */
+.tk-section--dark.tk-sirkular-section {
+  padding: 50px 0 56px;
+}
+
+.tk-sirkular__grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.tk-sirkular__desc {
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 440px;
+}
+
+.tk-sirkular__diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tk-sirkular__svg {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+}
+
+/* ====== 7. DAMPAK UNTUK WARGA ===== */
+.tk-dampak__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.tk-dampak__card {
+  background: #ffffff;
+  border: 1px solid rgba(70, 90, 60, 0.1);
+  border-radius: 18px;
+  padding: 32px 20px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(50, 60, 40, 0.06);
+}
+
+.tk-dampak__card-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--text-dark);
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.tk-dampak__card-number {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.tk-dampak__card-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.tk-dampak__card-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 220px;
+}
+
+/* ====== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 1199px) {
+  .tk-section {
+    padding: 64px 0 74px;
+  }
+
+  .tk-section-title {
+    font-size: 30px;
+  }
+
+  /* Hero */
+  .tk-hero__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .tk-hero__title {
+    font-size: 48px;
+  }
+
+  .tk-hero__subtitle {
+    font-size: 20px;
+  }
+
+  /* Visi */
+  .tk-visi__grid {
+    gap: 24px;
+  }
+  .tk-visi__card {
+    padding: 32px 24px 30px;
+    min-height: 240px;
+  }
+
+  /* Sistem */
+  .tk-sistem__step {
+    width: 120px;
+  }
+  .tk-sistem__circle {
+    width: 76px;
+    height: 76px;
+  }
+  .tk-sistem__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Organisasi */
+  .tk-organisasi__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Mitra */
+  .tk-mitra__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Sirkular */
+  .tk-sirkular__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .tk-sirkular__desc {
+    max-width: 100%;
+  }
+  .tk-sirkular__svg {
+    max-width: 400px;
+  }
+
+  /* Dampak */
+  .tk-dampak__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .tk-section {
+    padding: 50px 0 60px;
+  }
+
+  .tk-hero {
+    padding: 40px 0 50px;
+  }
+
+  .tk-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .tk-hero__title {
+    font-size: clamp(34px, 10vw, 42px);
+  }
+
+  .tk-hero__subtitle {
+    font-size: 18px;
+  }
+
+  .tk-hero__desc {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .tk-hero__image {
+    max-width: 100%;
+    aspect-ratio: 1.45 / 1;
+    border-radius: 20px;
+  }
+
+  .tk-section-title {
+    font-size: 24px;
+    white-space: normal;
+  }
+
+  .tk-section-header {
+    gap: 12px;
+  }
+  .tk-section-header__line {
+    width: 32px;
+  }
+  .tk-section-ornament {
+    margin-bottom: 28px;
+  }
+
+  /* Visi mobile */
+  .tk-visi__grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .tk-visi__card {
+    padding: 28px 20px 26px;
+    min-height: auto;
+  }
+
+  /* Sistem mobile - timeline */
+  .tk-sistem__desktop {
+    display: none;
+  }
+
+  .tk-sistem__mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .tk-sistem__mobile-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .tk-sistem__mobile-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(38, 69, 45, 0.4);
+    background: rgba(255, 255, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tk-sistem__mobile-text {
+    text-align: center;
+  }
+
+  .tk-sistem__step-title {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .tk-sistem__step-desc {
+    font-size: 12px;
+  }
+
+  .tk-sistem__mobile-arrow {
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .tk-sistem__mobile-arrow svg {
+    transform: rotate(90deg);
+  }
+
+  /* Organisasi mobile */
+  .tk-organisasi__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .tk-organisasi__card {
+    padding: 20px 18px;
+    min-height: auto;
+  }
+
+  /* Mitra mobile */
+  .tk-mitra__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Sirkular mobile */
+  .tk-sirkular__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .tk-sirkular__desc {
+    font-size: 15px;
+  }
+  .tk-sirkular__svg {
+    max-width: 320px;
+  }
+
+  /* Dampak mobile */
+  .tk-dampak__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .tk-dampak__card-number {
+    font-size: 40px;
+  }
+
+  /* Ornamen mobile */
+  .tk-ornament--left,
+  .tk-ornament--right,
+  .tk-ornament--right-large {
+    display: none;
+  }
+  .tk-ornament--top-right,
+  .tk-ornament--bottom-left,
+  .tk-ornament--bottom-right {
+    display: block;
+    opacity: 0.3;
+  }
+}

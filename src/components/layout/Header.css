@@ -1,0 +1,235 @@
+/* ===== HEADER ===== */
+.header {
+  width: 100%;
+  background-color: var(--primary-green);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  max-width: 1680px;
+  margin-inline: auto;
+  padding: 0 32px 0 48px;
+  height: 72px;
+  min-height: 72px;
+  max-height: 72px;
+}
+
+/* ===== BRAND (LOGO) ===== */
+.header__brand {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.header__logo-icon {
+  color: #f5efe3;
+  flex-shrink: 0;
+}
+
+.header__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.header__logo-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: #f5efe3;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.header__logo-subtitle {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 8px;
+  color: #f5efe3;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-top: 3px;
+  opacity: 0.85;
+}
+
+/* ===== SPACER ===== */
+.header__spacer {
+  flex: 1;
+  min-width: 80px;
+}
+
+/* ===== RIGHT GROUP (nav + icons + cta) ===== */
+.header__right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ===== NAVIGATION ===== */
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #f5efe3;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+.header__nav-link:hover {
+  opacity: 0.8;
+}
+
+.header__nav-link:focus-visible {
+  outline: 1.5px solid #f5efe3;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.header__nav-link--active {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.header__nav-link--active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  border-radius: 2px;
+  background: #f5efe3;
+}
+
+/* ===== ICONS ===== */
+.header__icons {
+  display: flex;
+  align-items: center;
+  margin-left: 48px;
+  flex-shrink: 0;
+}
+
+.header__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: transparent;
+  border: 0;
+  color: #f5efe3;
+  cursor: pointer;
+  transition: opacity 180ms ease;
+}
+
+.header__icon-btn:hover {
+  opacity: 0.75;
+}
+
+.header__icon-btn:focus-visible {
+  outline: 1.5px solid #f5efe3;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== HAMBURGER ===== */
+.header__hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  background: transparent;
+  border: 0;
+  color: #f5efe3;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.header__hamburger:focus-visible {
+  outline: 1.5px solid #f5efe3;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .header__container {
+    padding: 0 32px;
+    height: 72px;
+    min-height: 72px;
+    max-height: 72px;
+  }
+
+  .header__spacer,
+  .header__right {
+    display: none;
+  }
+
+  .header__hamburger {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__container {
+    height: 64px;
+    min-height: 64px;
+    max-height: 64px;
+    padding: 0 20px;
+  }
+
+  .header__logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header__logo-title {
+    font-size: 22px;
+  }
+}
